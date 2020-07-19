@@ -1,10 +1,11 @@
-import subprocess
 import youtube_dl
 
 
 def run():
     # Ask the user for the video they want to download
     video_url = input("Please enter the YouTube Video URL: ")
+    #Ask the user for where they wanna download it
+    SAVE_PATH = input("Please enter the download location: ") + "/"
     # Download and convert to mp3 and store in downloads folder
     video_info = youtube_dl.YoutubeDL().extract_info(
         url=video_url, download=False
@@ -13,7 +14,7 @@ def run():
     options = {
         'format': 'bestaudio/best',
         'keepvideo': False,
-        'outtmpl': filename,
+        'outtmpl': SAVE_PATH + filename,
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
