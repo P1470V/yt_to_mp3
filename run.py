@@ -2,6 +2,7 @@ import youtube_dl
 
 
 def run():
+    print("===================================================================")
     # Ask the user for the video they want to download
     video_url = input("Please enter the YouTube Video URL: ")
     #Ask the user for where they wanna download it
@@ -23,6 +24,9 @@ def run():
     }
     with youtube_dl.YoutubeDL(options) as ydl:
         ydl.download([video_info['webpage_url']])
+
+    print("Download Finished")
+    print("===================================================================")
 
 if __name__ == '__main__':
     run()
