@@ -23,9 +23,6 @@ def run():
     with youtube_dl.YoutubeDL(options) as ydl:
         ydl.download([video_info['webpage_url']])
 
-    # Open the file once it has been downloaded
-    subprocess.call(["open", filename])
-
 
 if __name__ == '__main__':
     run()
